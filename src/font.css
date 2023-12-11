@@ -1,0 +1,46 @@
+:root{
+    --title : 47.8px;
+    --title-2 : 39.8px;
+    --subtitle : 33.2px;
+    --lead : 19.2px;
+    --body : 16px;
+    --btn-medium : 14px;
+    --small : 12px;
+}
+
+@font-face {
+    font-family: 'spaceGrotek' ;
+    src: url('./assets/fonts/SpaceGrotesk-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'plusJakarta-regular';
+    src: url('./assets/fonts/PlusJakartaSans-Regular.ttf');
+}
+@font-face {
+    font-family: 'plusJakarta-medium';
+    src: url('./assets/fonts/PlusJakartaSans-Medium.ttf');
+}
+@font-face {
+    font-family: 'plusJakarta-semiBold';
+    src: url('./assets/fonts/PlusJakartaSans-SemiBold.ttf');
+}
+@font-face {
+    font-family: 'plusJakarta-semiBold';
+    src: url('./assets/fonts/PlusJakartaSans-SemiBold.ttf');
+}
+@font-face {
+    font-family: 'plusJakarta-bold';
+    src: url('./assets/fonts/PlusJakartaSans-Bold.ttf');
+}
+
+._title{font-size: var(--title);font-family: 'spaceGrotek';}
+._title-2{font-size: var(--title-2);font-family: 'plusJakarta-bold';}
+._subtitle{font-size: var(--subtitle);font-family: 'plusJakarta-bold';}
+._lead{font-size: var(--lead);font-family: 'plusJakarta-medium';}
+._body{font-size: var(--body);font-family: 'plusJakarta-medium';}
+._btn{font-size: var(--body);font-family: 'plusJakarta-semiBold';}
+._btn-medium{font-size: var(--btn-medium);font-family: 'plusJakarta-semiBold';}
+._small{font-size: var(--small);font-family: 'plusJakarta-regular';}
+._no-deco{text-decoration: none; list-style: none;}
+._icon{font-size: 24px;}
