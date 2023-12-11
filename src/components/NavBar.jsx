@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-
+import navlink from "./navlink";
 export default function NavBar() {
   const [language, setLanguage] = useState([
     {
@@ -16,6 +16,15 @@ export default function NavBar() {
     },
   ]);
 
+  const [navLinks, setNavLinks] = useState(navlink);
+  const [hash, setHash] = useState(window.location.hash);
+  const hashName = window.location.hash;
+  const [darkMode, setDarkMode] = useState(true);
+
+
+  useEffect(() =>{
+    handleNavSelected(hashName.slice(1));
+  }, [hashName])
 
   const handleLanguageSelected = (id) => {
     setLanguage((prevItem) => {
@@ -27,17 +36,34 @@ export default function NavBar() {
     });
   };
 
-  const location = window.location;
-  const [darkMode, setDarkMode] = useState(true);
+  const handleNavSelected = (id) => {
+    setNavLinks((prevNav) => {
+      return prevNav.map((item) =>
+        id === item.id
+          ? { ...item, active: true }
+          : { ...item, active: false }
+      );
+    });
+  };
 
   const languageElement = language.map((item) => (
     <Language
+      key={item.name}
       name={item.name}
       selected={item.selected}
       handleSelect={handleLanguageSelected}
     />
   ));
 
+  const navLinkElement = navLinks.map((nav) => (
+    <NavLink
+      key={nav.id}
+      id={nav.id}
+      name={nav.name}
+      active={nav.active}
+      handleNavSelected={handleNavSelected}
+    />
+  ));
   return (
     <nav className="container-fluid py-12  text-light _body px-72 position-fixed top-0 _navbar">
       <div className="row align-items-center justify-content-between">
@@ -48,11 +74,7 @@ export default function NavBar() {
         </div>
         <div className="col-6">
           <div className="container-fluid  d-flex justify-content-evenly align-items-center ">
-            <NavLink id="home" active={true} name="Home" />
-            <NavLink id="about" active={false} name="About" />
-            <NavLink id="project" active={false} name="Project" />
-            <NavLink id="skill" active={false} name="Skill" />
-            <NavLink id="contact" active={false} name="Contact" />
+            {navLinkElement}
           </div>
         </div>
         <div className="col-3 text-end ">
@@ -67,10 +89,10 @@ export default function NavBar() {
               className="container-fluid"
               style={{ maxWidth: "max-content" }}
             >
-                <DarkMode
-                    darkMode={darkMode}
-                    setDarkMode={() => setDarkMode((isDark) => !isDark)}
-                />
+              <DarkMode
+                darkMode={darkMode}
+                setDarkMode={() => setDarkMode((isDark) => !isDark)}
+              />
             </div>
           </div>
         </div>
@@ -79,11 +101,13 @@ export default function NavBar() {
   );
 }
 
-function NavLink({ id, active, name }) {
+
+function NavLink({ id, active, name, handleNavSelected }) {
   return (
     <a
       href={`#${id}`}
       className={`_no-deco ${active ? "text-primary" : "text-light"} _lead `}
+      onClick={() => handleNavSelected(id)}
     >
       {name}
     </a>
@@ -115,10 +139,10 @@ function Language({ name, selected, handleSelect }) {
 function DarkMode({ darkMode = true, setDarkMode }) {
   return (
     <>
-      <i 
-      className={`${darkMode ? "bi bi-moon" : "bi bi-sun"} _icon`}
-      onClick={setDarkMode}
-      type='button'
+      <i
+        className={`${darkMode ? "bi bi-moon" : "bi bi-sun"} _icon`}
+        onClick={setDarkMode}
+        type="button"
       ></i>
     </>
   );
