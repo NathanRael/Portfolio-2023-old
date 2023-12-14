@@ -39,14 +39,6 @@ export default function NavBar() {
     });
   };
 
-  // const handleNavSelected = (id) => {
-  //   setNavLinks((prevNav) => {
-  //     return prevNav.map((item) =>
-  //       id === item.id ? { ...item, active: true } : { ...item, active: false }
-  //     );
-  //   });
-  // };
-
   const languageElement = language.map((item) => (
     <Language
       key={item.name}
