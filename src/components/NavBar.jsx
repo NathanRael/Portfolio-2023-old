@@ -3,21 +3,17 @@ import { useState } from "react";
 import DataContext from "../context/DataContext";
 
 export default function NavBar() {
-  const { darkMode, setDarkMode, handleNavSelected, navlink, setNavLink, navLinks } = useContext(DataContext);
-  
-  
-  const [language, setLanguage] = useState([
-    {
-      id: "en",
-      name: "En",
-      selected: true,
-    },
-    {
-      id: "fr",
-      name: "Fr",
-      selected: false,
-    },
-  ]);
+  const {
+    darkMode,
+    setDarkMode,
+    handleNavSelected,
+    navlink,
+    setNavLink,
+    navLinks,
+    language,
+    setLanguage,
+  } = useContext(DataContext);
+
 
   const hashName = window.location.hash;
 
@@ -25,9 +21,12 @@ export default function NavBar() {
     handleNavSelected(hashName.slice(1));
   }, [hashName]);
 
-  useEffect(() =>{
-    document.querySelector('body').classList = darkMode ? 'bg-secondary' : 'bg-light';
+  useEffect(() => {
+    document.querySelector("body").classList = darkMode
+      ? "bg-secondary"
+      : "bg-light";
   }, [darkMode]);
+
 
   const handleLanguageSelected = (id) => {
     setLanguage((prevItem) => {
@@ -62,7 +61,9 @@ export default function NavBar() {
   return (
     <nav
       className={`container-fluid py-12  _body px-72 position-fixed top-0 _navbar ${
-        darkMode ? "text-light bg-secondary shadow" : "text-dark bg-light border-bottom shadow-sm "
+        darkMode
+          ? "text-light bg-secondary shadow"
+          : "text-dark bg-light border-bottom shadow-sm "
       }`}
     >
       <div className="row align-items-center justify-content-between">
