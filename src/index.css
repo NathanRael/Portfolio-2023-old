@@ -7,6 +7,18 @@
     --btn-medium : 14px;
     --small : 12px;
 }
+span.intLink {
+    cursor: pointer;
+    color: #0000ff;
+    text-decoration: underline;
+  }
+
+*{
+    transition:  background-color,color 0.5s ease;
+}
+
+._transOpacity{transition: opacity 0.5s ease;}
+
 
 body::-webkit-scrollbar {
     width: 12px;

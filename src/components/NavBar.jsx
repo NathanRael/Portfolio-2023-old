@@ -1,8 +1,11 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useState } from "react";
-import navlink from "./navlink";
+import DataContext from "../context/DataContext";
 
 export default function NavBar() {
+  const { darkMode, setDarkMode, handleNavSelected, navlink, setNavLink, navLinks } = useContext(DataContext);
+  
+  
   const [language, setLanguage] = useState([
     {
       id: "en",
@@ -16,14 +19,15 @@ export default function NavBar() {
     },
   ]);
 
-  const [navLinks, setNavLinks] = useState(navlink);
   const hashName = window.location.hash;
-  const [darkMode, setDarkMode] = useState(true);
-  
+
+  useEffect(() => {
+    handleNavSelected(hashName.slice(1));
+  }, [hashName]);
 
   useEffect(() =>{
-    handleNavSelected(hashName.slice(1));
-  }, [hashName])
+    document.querySelector('body').classList = darkMode ? 'bg-secondary' : 'bg-light';
+  }, [darkMode]);
 
   const handleLanguageSelected = (id) => {
     setLanguage((prevItem) => {
@@ -35,15 +39,13 @@ export default function NavBar() {
     });
   };
 
-  const handleNavSelected = (id) => {
-    setNavLinks((prevNav) => {
-      return prevNav.map((item) =>
-        id === item.id
-          ? { ...item, active: true }
-          : { ...item, active: false }
-      );
-    });
-  };
+  // const handleNavSelected = (id) => {
+  //   setNavLinks((prevNav) => {
+  //     return prevNav.map((item) =>
+  //       id === item.id ? { ...item, active: true } : { ...item, active: false }
+  //     );
+  //   });
+  // };
 
   const languageElement = language.map((item) => (
     <Language
@@ -51,6 +53,7 @@ export default function NavBar() {
       name={item.name}
       selected={item.selected}
       handleSelect={handleLanguageSelected}
+      darkMode={darkMode}
     />
   ));
 
@@ -61,18 +64,32 @@ export default function NavBar() {
       name={nav.name}
       active={nav.active}
       handleNavSelected={handleNavSelected}
+      darkMode={darkMode}
     />
   ));
   return (
-    <nav className="container-fluid py-12  text-light _body px-72 position-fixed top-0 _navbar">
+    <nav
+      className={`container-fluid py-12  _body px-72 position-fixed top-0 _navbar ${
+        darkMode ? "text-light bg-secondary shadow" : "text-dark bg-light border-bottom shadow-sm "
+      }`}
+    >
       <div className="row align-items-center justify-content-between">
         <div className="col-3">
-          <a href="#" className="_subtitle text-light _no-deco">
+          <a
+            href="#"
+            className={`_subtitle ${
+              darkMode ? "text-light bg-secondary" : "text-dark bg-light"
+            } _no-deco`}
+          >
             Natanael
           </a>
         </div>
         <div className="col-6">
-          <div className="container-fluid  d-flex justify-content-evenly align-items-center ">
+          <div
+            className={`container-fluid  d-flex justify-content-evenly align-items-center ${
+              darkMode ? "text-light bg-secondary" : "text-dark bg-light"
+            }`}
+          >
             {navLinkElement}
           </div>
         </div>
@@ -88,7 +105,7 @@ export default function NavBar() {
               className="container-fluid"
               style={{ maxWidth: "max-content" }}
             >
-              <DarkMode
+              <DarkModeIcon
                 darkMode={darkMode}
                 setDarkMode={() => setDarkMode((isDark) => !isDark)}
               />
@@ -100,12 +117,17 @@ export default function NavBar() {
   );
 }
 
-
-function NavLink({ id, active, name, handleNavSelected }) {
+function NavLink({ id, active, name, handleNavSelected, darkMode }) {
   return (
     <a
       href={`#${id}`}
-      className={`_no-deco ${active ? "text-primary" : "text-light"} _lead `}
+      className={`_no-deco ${
+        active
+          ? "text-primary"
+          : darkMode
+          ? "text-light bg-secondary"
+          : "text-dark bg-light"
+      } _lead `}
       onClick={() => handleNavSelected(id)}
     >
       {name}
@@ -113,10 +135,14 @@ function NavLink({ id, active, name, handleNavSelected }) {
   );
 }
 
-function Language({ name, selected, handleSelect }) {
+function Language({ name, selected, handleSelect, darkMode }) {
   const id = name.toLowerCase();
   return (
-    <div className="container-fluid d-inline-flex text-light ">
+    <div
+      className={`container-fluid d-inline-flex ${
+        darkMode ? "text-light" : "text-dark"
+      }`}
+    >
       <input
         type="radio"
         className="btn-check"
@@ -127,7 +153,13 @@ function Language({ name, selected, handleSelect }) {
       <label
         type="button"
         htmlFor={id}
-        className={selected ? "_language text-primary" : "text-light"}
+        className={` ${
+          selected
+            ? "_language text-primary"
+            : darkMode
+            ? "text-light"
+            : "text-dark"
+        }`}
       >
         {name}
       </label>
@@ -135,7 +167,7 @@ function Language({ name, selected, handleSelect }) {
   );
 }
 
-function DarkMode({ darkMode = true, setDarkMode }) {
+function DarkModeIcon({ darkMode = true, setDarkMode }) {
   return (
     <>
       <i

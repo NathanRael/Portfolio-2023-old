@@ -7,11 +7,11 @@ export function BigButton({
   icon = "bi bi-arrow-right",
   color = "btn-primary",
   inverseIcon = false,
-  handleClick
+  handleClick,
 }) {
   return (
     <button
-      className={`btn ${color} btn-lg px-32 py-16 text-ligh d-flex align-items-center justify-content-center _body`}
+      className={`btn ${color} btn-lg px-32 py-16 text-ligh d-flex align-items-center justify-content-center _body shadow`}
       style={{ width: "max-content" }}
       onClick={handleClick}
     >
@@ -26,10 +26,12 @@ export function MdButton({
   icon = "bi bi-arrow-right",
   color = "btn-primary",
   inverseIcon = false,
+  handleClick,
 }) {
   return (
     <button
-      className={`btn ${color}  px-24 py-12 text-ligh d-flex align-items-center justify-content-center _body`}
+      className={`btn ${color}  px-24 py-12 text-ligh d-flex align-items-center justify-content-center _body shadow`}
+      onClick={handleClick}
     >
       {inverseIcon ? <i className={`${icon} me-8`} style={IconFs}></i> : ""}
       <span>{name}</span>
@@ -38,10 +40,16 @@ export function MdButton({
   );
 }
 
-export function IconButton({ icon = "bi bi-plus-lg", color = "btn-primary" , href = '#'}) {
+export function IconButton({
+  icon = "bi bi-plus-lg",
+  color = "btn-primary",
+  href,
+  handleClick,
+}) {
   return (
     <a
-      className={`btn ${color} p-12 rounded-5 d-flex align-items-center justify-content-center _body`}
+      onClick={handleClick}
+      className={`btn ${color} p-12 rounded-5 d-flex align-items-center justify-content-center _body shadow `}
       style={{ width: "48px", height: "48px" }}
       href={href}
     >

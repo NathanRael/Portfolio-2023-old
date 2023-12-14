@@ -7,29 +7,31 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Circle from "./components/Circle";
 
+import { DataProvider } from "./context/DataContext";
 
 /**
  * - Adding Responsive
  * - Adding interaction : show eye when hovering project card
- * 
-*/
-import { useEffect } from "react";
+ *
+ */
 
 export default function App() {
   return (
     <>
-      <div className="container-fluid p-0">
-        <Circle />
-        <NavBar />
-      </div>
-      <main className="container-fluid px-64">
-        <Hero />
-        <About />
-        <Project />
-        <Skill />
-        <Contact />
-        <Footer />
-      </main>
+      <DataProvider>
+        <div className="container-fluid p-0">
+          <Circle />
+          <NavBar />
+        </div>
+        <main className="container-fluid px-64">
+          <Hero />
+          <About />
+          <Project />
+          <Skill />
+          <Contact />
+          <Footer />
+        </main>
+      </DataProvider>
     </>
   );
 }
