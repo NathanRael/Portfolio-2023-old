@@ -9,8 +9,8 @@ export const DataProvider = ({ children }) => {
   const redirect = (link) => {
     window.location.hash = "#" + link;
   };
-  const [currentLang, setCurrentLang] = useState(new PortfolioData().load("lang"));
-  
+  const [currentLang, setCurrentLang] = useState(new PortfolioData().load("lang") || 'en');
+
   const data = new PortfolioData();
 
   const [language, setLanguage] = useState([]);
