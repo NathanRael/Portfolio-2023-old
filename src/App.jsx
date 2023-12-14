@@ -7,6 +7,12 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Circle from "./components/Circle";
 
+
+/**
+ * - Adding Responsive
+ * - Adding interaction : show eye when hovering project card
+ * 
+*/
 import { useEffect } from "react";
 
 export default function App() {

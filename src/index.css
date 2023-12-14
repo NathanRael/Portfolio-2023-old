@@ -8,6 +8,24 @@
     --small : 12px;
 }
 
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #6F3DF4;
+    border-radius: 6px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #171623;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: #4D2599;
+}
+
+
 
 ._language{
     position: relative;

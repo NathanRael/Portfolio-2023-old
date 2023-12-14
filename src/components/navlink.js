@@ -1,6 +1,6 @@
 const  navlink = [
     {
-        id : 'home',
+        id : '',
         name : 'Home',
         active : true,
     },

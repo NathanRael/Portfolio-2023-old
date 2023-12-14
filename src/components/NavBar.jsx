@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
 import navlink from "./navlink";
+
 export default function NavBar() {
   const [language, setLanguage] = useState([
     {
@@ -17,10 +17,9 @@ export default function NavBar() {
   ]);
 
   const [navLinks, setNavLinks] = useState(navlink);
-  const [hash, setHash] = useState(window.location.hash);
   const hashName = window.location.hash;
   const [darkMode, setDarkMode] = useState(true);
-
+  
 
   useEffect(() =>{
     handleNavSelected(hashName.slice(1));

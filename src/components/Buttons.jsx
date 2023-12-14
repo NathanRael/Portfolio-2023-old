@@ -7,11 +7,13 @@ export function BigButton({
   icon = "bi bi-arrow-right",
   color = "btn-primary",
   inverseIcon = false,
+  handleClick
 }) {
   return (
     <button
       className={`btn ${color} btn-lg px-32 py-16 text-ligh d-flex align-items-center justify-content-center _body`}
       style={{ width: "max-content" }}
+      onClick={handleClick}
     >
       {inverseIcon ? <i className={`${icon} me-8`} style={IconFs}></i> : ""}
       <span>{name}</span>
