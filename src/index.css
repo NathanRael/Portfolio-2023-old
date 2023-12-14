@@ -1,12 +1,5 @@
-:root{
-    --title : 47.8px;
-    --title-2 : 39.8px;
-    --subtitle : 33.2px;
-    --lead : 19.2px;
-    --body : 16px;
-    --btn-medium : 14px;
-    --small : 12px;
-}
+
+
 span.intLink {
     cursor: pointer;
     color: #0000ff;
@@ -85,4 +78,27 @@ body::-webkit-scrollbar-thumb:hover {
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     z-index: 4;
+}
+
+@media screen and (max-width : 1200px) {
+    
+}
+@media screen and (max-width : 992px) {
+    ._navLink{
+        z-index: 4;
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+@media screen and (max-width : 768px) {
+    
+}
+@media screen and (max-width : 576px) {
+    ._projectCard{
+        width: 372px ;
+    }
 }

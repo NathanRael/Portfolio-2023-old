@@ -23,7 +23,7 @@ export default function App() {
           <Circle />
           <NavBar />
         </div>
-        <main className="container-fluid px-64">
+        <main className="container-fluid px-0 px-md-64">
           <Hero />
           <About />
           <Project />

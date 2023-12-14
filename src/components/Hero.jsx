@@ -15,10 +15,10 @@ export default function Hero() {
       }`}
       id="home"
     >
-      <div className="row">
-        <div className="col-7 d-flex flex-column row-gap-40">
+      <div className="row row-gap-64">
+        <div className="col-12 col-lg-7 d-flex flex-column row-gap-40">
           <div
-            className={`container-fluid ${
+            className={`container-fluid px-0 ${
               darkMode ? "text-light" : "text-dark"
             } row-gap-16`}
           >
@@ -29,7 +29,7 @@ export default function Hero() {
               website
             </h1>
           </div>
-          <div className="container-fluid">
+          <div className="container-fluid px-0">
             <BigButton
               name="See my project"
               icon="bi bi-arrow-right"
@@ -41,26 +41,29 @@ export default function Hero() {
             />
           </div>
         </div>
-        <div className="col-5 d-flex gap-48">
-          <div className="container d-flex">
+        <div className="col-12 col-lg-5 d-none d-sm-flex gap-48">
+          <div className="container-fluid d-flex">
             <img
               src={FigmaIcon}
-              className="img-fluid align-self-start"
+              className="align-self-start"
               alt=""
+              
             />
           </div>
-          <div className="container d-flex">
+          <div className="container-fluid d-flex">
             <img
               src={BootstrapIcon}
-              className="img-fluid align-self-end"
+              className="align-self-end"
               alt=""
+              
             />
           </div>
-          <div className="container d-flex">
+          <div className="container-fluid d-flex">
             <img
               src={ReactIcon}
-              className="img-fluid align-self-start"
+              className="align-self-start"
               alt=""
+              width='106'
             />
           </div>
         </div>

@@ -12,55 +12,55 @@ export default function Skill() {
   const { darkMode } = useContext(DataContext);
 
   return (
-    <section className={`mt-184 ${darkMode ? 'text-light bg-secondary' : 'text-dark bg-light'}`} id="skill">
+    <section className={`container-fluid mt-184 ${darkMode ? 'text-light bg-secondary' : 'text-dark bg-light'}`} id="skill">
       <h1 className={`_title-2 ${darkMode ? 'text-light' : ''} mb-40`}>
         My current <span className="text-primary">Skills</span>
       </h1>
-      <div className="container-fluid">
+      <div className="container-fluid px-0">
         <div className="row row-col-4 row-gap-40 justify-content-center">
-          <div className="col-3">
+          <div className="col-6 col-md-3">
             <SkillItem
               image={HtmlIcon}
               name="Html"
               darkMode={darkMode}
             />
           </div>
-          <div className="col-3">
+          <div className="col-6 col-md-3">
             <SkillItem
               image={CssIcon}
               name="Css"
               darkMode={darkMode}
             />
           </div>
-          <div className="col-3">
+          <div className="col-6 col-md-3">
             <SkillItem
               image={JsIcon}
               name="Javascript"
               darkMode={darkMode}
             />
           </div>
-          <div className="col-3">
+          <div className="col-6 col-md-3">
             <SkillItem
               image={JQuerIcon}
               name="JQuery"
               darkMode={darkMode}
             />
           </div>
-          <div className="col-3">
+          <div className="col-6 col-md-3">
             <SkillItem
               image={BootstrapIcon}
               name="Bootstrap"
               darkMode={darkMode}
             />
           </div>
-          <div className="col-3">
+          <div className="col-6 col-md-3">
             <SkillItem
               image={ReactIcon}
               name="React js"
               darkMode={darkMode}
             />
           </div>
-          <div className="col-3">
+          <div className="col-6 col-md-3">
             <SkillItem
               image={FigmaIcon}
               name="Figma"

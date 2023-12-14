@@ -1,13 +1,13 @@
-:root{
-    --title : 47.8px;
-    --title-2 : 39.8px;
-    --subtitle : 33.2px;
-    --lead : 19.2px;
-    --body : 16px;
-    --btn-medium : 14px;
-    --small : 12px;
+:root {
+    --title: 2.9875rem;        /* 47.8px / 16px = 2.9875rem */
+    --title-2: 2.4875rem;      /* 39.8px / 16px = 2.4875rem */
+    --subtitle: 2.075rem;      /* 33.2px / 16px = 2.075rem */
+    --lead: 1.2rem;            /* 19.2px / 16px = 1.2rem */
+    --body: 1rem;              /* 16px / 16px = 1rem */
+    --btn-medium: 0.875rem;    /* 14px / 16px = 0.875rem */
+    --small: 0.75rem;          /* 12px / 16px = 0.75rem */
+    font-size: var(--body);
 }
-
 @font-face {
     font-family: 'spaceGrotek' ;
     src: url('./assets/fonts/SpaceGrotesk-Bold.ttf');
@@ -44,3 +44,19 @@
 ._small{font-size: var(--small);font-family: 'plusJakarta-regular';}
 ._no-deco{text-decoration: none; list-style: none;}
 ._icon{font-size: 24px;}
+
+
+@media screen and (max-width : 992px) {
+    :root{
+        --body : 14px;
+    }
+}
+
+@media screen and (max-width : 576px) {
+    :root{
+        --body : 12px;
+    }
+    ._projectCard{
+        width: 372px ;
+    }
+}

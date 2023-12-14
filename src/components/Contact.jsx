@@ -6,7 +6,7 @@ import myCv from '../assets/myCV.png';
 export default function Contact() {
   const { darkMode } = useContext(DataContext);
   return (
-    <section className={`mt-184 ${darkMode ? 'text-light bg-secondary' : 'text-dark bg-light'}`} id="contact">
+    <section className={`container-fluid mt-184 ${darkMode ? 'text-light bg-secondary' : 'text-dark bg-light'}`} id="contact">
       <h1 className={`_title-2 mb-40 ${darkMode ? 'text-light' : ''}`}>
         Feel free to <span className="text-primary">contact</span> me
       </h1>

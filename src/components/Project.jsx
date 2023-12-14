@@ -17,9 +17,9 @@ export default function Project() {
       <h1 className={`_title-2 ${darkMode ? "text-light" : ""} mb-40`}>
         My personal <span className="text-primary">projects</span>
       </h1>
-      <div className="container-fluid">
-        <div className="row justify-content-center">
-          <div className="col-6">
+      <div className="container-fluid px-0">
+        <div className="row  justify-content-center row-gap-40">
+          <div className="col-12 col-xl-6 mx-0 d-flex justify-content-center">
             <Card
               image={MovieImage}
               title="Movie website"
@@ -28,7 +28,7 @@ export default function Project() {
               projectLink='https:nathanrael-movie.netlify.app'
             />
           </div>
-          <div className="col-6">
+          <div className="col-12 col-xl-6 mx-0 d-flex justify-content-center">
             <Card
               image={ChatImage}
               title="ChatBot website"
@@ -62,7 +62,7 @@ function Card({ image, title, description, darkMode, projectLink }) {
           onMouseLeave={()=> setCardHover(false)}
           style={{
             filter : cardHover ? 'blur(1px)' : '',
-            transition:  'filter 0.5s ease'
+            transition:  'filter 0.5s ease',
           }}
         />
           <div
