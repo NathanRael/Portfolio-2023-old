@@ -14,7 +14,11 @@ export default function Project() {
       }`}
       id="project"
     >
-      <h1 className={`_title-2 ${darkMode ? "text-light" : ""} mb-40 text-center text-md-start`}>
+      <h1
+        className={`_title-2 ${
+          darkMode ? "text-light" : ""
+        } mb-40 text-center text-md-start`}
+      >
         My personal <span className="text-primary">projects</span>
       </h1>
       <div className="container-fluid px-0">
@@ -25,7 +29,7 @@ export default function Project() {
               title="Movie website"
               description="A modern movie website that can simplify your life in terms of searching for new anime and watching trailers."
               darkMode={darkMode}
-              projectLink='https:nathanrael-movie.netlify.app'
+              projectLink="https://nathanrael-movie.netlify.app"
             />
           </div>
           <div className="col-12 col-xl-6 mx-0 d-flex justify-content-center">
@@ -34,7 +38,7 @@ export default function Project() {
               title="ChatBot website"
               description="A ChatBot website that can help you in different topics."
               darkMode={darkMode}
-              projectLink='https:nathanrael-chatBot.netlify.app'
+              projectLink="https://nathanrael-chatBot.netlify.app"
             />
           </div>
         </div>
@@ -59,26 +63,25 @@ function Card({ image, title, description, darkMode, projectLink }) {
           alt=""
           height="319px"
           onMouseEnter={() => setCardHover(true)}
-          onMouseLeave={()=> setCardHover(false)}
+          onMouseLeave={() => setCardHover(false)}
           style={{
-            filter : cardHover ? 'blur(1px)' : '',
-            transition:  'filter 0.5s ease',
+            filter: cardHover ? "blur(1px)" : "",
+            transition: "filter 0.5s ease",
           }}
         />
-          <div
-            className="container-fluid position-absolute top-50 start-50 translate-middle _transOpacity"
-            style={{ width: "max-content", opacity : cardHover ? 1 : 0}}
-            onMouseEnter={() => setCardHover(true)}
-          >
-            <IconButton 
+        <div
+          className="container-fluid position-absolute top-50 start-50 translate-middle _transOpacity"
+          style={{ width: "max-content", opacity: cardHover ? 1 : 0 }}
+          onMouseEnter={() => setCardHover(true)}
+        >
+          <IconButton
             icon="bi bi-eye"
-            handleClick={() => { 
-              window.open(projectLink, '_blank')
-              setCardHover(false)
+            handleClick={() => {
+              window.open(projectLink, "_blank");
+              setCardHover(false);
             }}
-            />
-            
-          </div>
+          />
+        </div>
       </div>
       <div className="container-fluid m-0 mt-16 p-0">
         <h1
