@@ -125,7 +125,7 @@ export default function NavBar() {
         ) : (
           <div className="col-2 d-block d-lg-none">
             <IconButton
-              icon="bi bi-mouse"
+              icon="bi bi-list"
               handleClick={() => {
                 setDisplayNav(true);
               }}
