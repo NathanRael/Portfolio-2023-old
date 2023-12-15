@@ -17,6 +17,9 @@ export default function NavBar() {
 
   const hashName = window.location.hash;
   const [displayNav, setDisplayNav] = useState(false);
+  useEffect(() =>{
+    document.body.style.overflow = displayNav ? 'hidden' : 'auto';
+  }, [displayNav])
   useEffect(() => {
     handleNavSelected(hashName.slice(1));
   }, [hashName]);
@@ -57,6 +60,18 @@ export default function NavBar() {
       darkMode={darkMode}
     />
   ));
+
+  const phoneNavLinkElement = navLinks.map((nav) => (
+    <NavLink
+      key={nav.id}
+      id={nav.id}
+      name={nav.name}
+      active={nav.active}
+      handleNavSelected={handleNavSelected}
+      darkMode={darkMode}
+      fontSize="_subtitle"
+    />
+  ));
   return (
     <nav
       className={`container-fluid py-12  _body px-16 px-md-72 position-fixed top-0 _navbar ${
@@ -89,22 +104,34 @@ export default function NavBar() {
             {navLinkElement}
           </div>
         </div>
-          {displayNav ? (
-                    <div
-                    className={`container-fluid d-block d-lg-none  d-flex justify-content-center  align-items-center flex-column 
+        {displayNav ? (
+          <div
+            className={`container-fluid d-block d-lg-none  d-flex justify-content-center  align-items-center flex-column 
                       row-gap-32 _navLink
-                      ${darkMode ? "text-light bg-secondary" : "text-dark bg-light"}`}
-                  >
-                    <div className="position-absolute top-0 start-50 p-8 translate-middle-x">
-                      <IconButton icon="bi bi-x-lg" handleClick={() => setDisplayNav(false)} />
-                    </div>
-                    {navLinkElement}
-                  </div>
-          ) : (
-            <div className="col-2 d-block d-lg-none">
-              <IconButton icon="bi bi-mouse" handleClick={() => setDisplayNav(true)} />
+                      ${
+                        darkMode
+                          ? "text-light bg-secondary"
+                          : "text-dark bg-light"
+                      }`}
+          >
+            <div className="position-absolute top-0 end-0 p-16">
+              <IconButton
+                icon="bi bi-x-lg"
+                handleClick={() => setDisplayNav(false)}
+              />
             </div>
-          )}
+            {phoneNavLinkElement}
+          </div>
+        ) : (
+          <div className="col-2 d-block d-lg-none">
+            <IconButton
+              icon="bi bi-mouse"
+              handleClick={() => {
+                setDisplayNav(true);
+              }}
+            />
+          </div>
+        )}
         <div className="col-5 col-lg-3 text-end ">
           <div className="container-fluid d-flex align-items-center flex-row">
             <div
@@ -129,7 +156,7 @@ export default function NavBar() {
   );
 }
 
-function NavLink({ id, active, name, handleNavSelected, darkMode }) {
+function NavLink({ id, active, name, handleNavSelected, darkMode, fontSize = '_lead' }) {
   return (
     <a
       href={`#${id}`}
@@ -139,7 +166,7 @@ function NavLink({ id, active, name, handleNavSelected, darkMode }) {
           : darkMode
           ? "text-light bg-secondary"
           : "text-dark bg-light"
-      } _lead `}
+      } ${fontSize} `}
       onClick={() => handleNavSelected(id)}
     >
       {name}

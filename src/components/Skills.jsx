@@ -13,7 +13,7 @@ export default function Skill() {
 
   return (
     <section className={`container-fluid mt-184 ${darkMode ? 'text-light bg-secondary' : 'text-dark bg-light'}`} id="skill">
-      <h1 className={`_title-2 ${darkMode ? 'text-light' : ''} mb-40`}>
+      <h1 className={`_title-2 ${darkMode ? 'text-light' : ''} mb-40 text-center text-md-start`}>
         My current <span className="text-primary">Skills</span>
       </h1>
       <div className="container-fluid px-0">

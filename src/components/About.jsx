@@ -6,8 +6,8 @@ export default function About() {
 
   return (
     <section className={`d-flex flex-column row-gap-40 container-fluid mt-240 ${darkMode ? 'text-light bg-secondary' : 'text-dark bg-light'}`} id='about'>
-      <h1 className={`_title-2 ${darkMode ? 'text-light' : ''}`}>
-        <span className="text-primary">About</span> me
+      <h1 className={`_title-2  text-center text-md-start${darkMode ? 'text-light' : ''}`}>
+        <span className="text-primary ">About</span> me
       </h1>
       <div className={`container-fluid p-0 m-0 _lead ${darkMode ? 'text-light' : ''} _about ms-16`}>
         <div className="mb-16">
