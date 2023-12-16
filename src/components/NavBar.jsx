@@ -109,7 +109,7 @@ export default function NavBar() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: displayNav ? 1 : 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.8 }}
             className={`container-fluid  d-flex justify-content-center  align-items-center flex-column 
                       row-gap-32 _navLink
                       ${

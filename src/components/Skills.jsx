@@ -53,7 +53,7 @@ export default function Skill() {
   ];
 
   const skillElements = mySkills.map((skill) => (
-    <div className="col-auto">
+    <div className="col-6 col-md-4 col-lg-auto" style={{width : 'max-content'}}>
       <SkillItem name={skill.name} image={skill.image} darkMode={darkMode} custom={skill.delay}  />
     </div>
   ));
@@ -115,9 +115,10 @@ function SkillItem({ image, name, darkMode, custom }) {
   return (
     <motion.div
 
-    drag 
+    // drag 
+    // dragConstraints={skillVariant.constraint}
     custom={custom}
-    dragConstraints={skillVariant.constraint}
+
     variants={skillVariant}
     whileHover="hover"
     initial="hidden"
