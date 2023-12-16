@@ -28,7 +28,7 @@ export default function Hero() {
               custom={0.7}
               whileInView="visible"
               initial="hidden"
-              className="_lead"
+              className="_lead text-center text-sm-start"
             >
               Web developer & designer
             </motion.p>
@@ -37,14 +37,22 @@ export default function Hero() {
               custom={0.2}
               whileInView="visible"
               initial="hidden"
-              className={`_title ${darkMode ? "text-light" : ""}`}
+              className={`_title text-center text-sm-start ${
+                darkMode ? "text-light" : ""
+              }`}
             >
               Let's <span className="text-primary">Design</span> and
               <span className="text-primary"> Develop</span> a visual appealing
               website
             </motion.h1>
           </div>
-          <motion.div custom={1}  variants={heroTextVariant} initial='hidden' whileInView='visible' className="container-fluid px-0">
+          <motion.div
+            custom={1}
+            variants={heroTextVariant}
+            initial="hidden"
+            whileInView="visible"
+            className="container-fluid d-flex justify-content-sm-start justify-content-center px-0"
+          >
             <BigButton
               name="See my project"
               icon="bi bi-arrow-right"
@@ -59,7 +67,7 @@ export default function Hero() {
         <div className="col-12 col-lg-5 d-none d-sm-flex gap-48">
           <div className="container-fluid d-flex">
             <motion.img
-            custom={1}
+              custom={1}
               variants={heroImageVariant}
               initial="hidden"
               whileInView="visible"
@@ -70,7 +78,7 @@ export default function Hero() {
           </div>
           <div className="container-fluid d-flex">
             <motion.img
-            custom={1.2}
+              custom={1.2}
               variants={heroImageVariant}
               initial="hidden"
               whileInView="visible"
@@ -81,10 +89,10 @@ export default function Hero() {
           </div>
           <div className="container-fluid d-flex">
             <motion.img
-            custom={1.3}
-            variants={heroImageVariant}
-            initial="hidden"
-            whileInView="visible"
+              custom={1.3}
+              variants={heroImageVariant}
+              initial="hidden"
+              whileInView="visible"
               src={ReactIcon}
               className="align-self-start"
               alt=""

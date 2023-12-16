@@ -31,29 +31,29 @@ export default function About() {
         } _about ms-16`}
       >
         <div className="mb-16">
-          Hello, I'm <span className="_gradient text-gradient">Natanael</span>.{" "}
+        👋 Hello, I'm <span className="_gradient text-gradient">Natanael</span>.{" "}
           <br />
         </div>
         <div className="mb-16">
-          I am a <span className="_gradient">computer science student</span> at
+        📚 I am a <span className="_gradient">computer science student</span> at
           EMIT (Ecole de Management et d'Innovation Technologique)
           <br />
           in the University of Fianarantsoa.
           <br />
         </div>
         <div className="mb-16">
-          I'm interested in developing an{" "}
+        💻 I'm interested in developing an{" "}
           <span className="_gradient">amazing</span> and{" "}
           <span className="_gradient">visually appealing website</span>. I'm
           currently using some front-end <br />
           technologies and libraries such as{" "}
-          <span className="_gradient">React.js, Bootstrap, and jQuery</span>.
-          Continuously improving my skills is a priority
+          <span className="_gradient">React.js, Bootstrap, and jQuery</span>.<br/>
+        🎯 Continuously improving my skills is a priority 
           <br />
           to ensure that I stay up-to-date in this field. <br />
         </div>
         <div className="mb-16">
-          Beyond coding, I have also delved into the realm of{" "}
+        🎮 Beyond coding, I have also delved into the realm of{" "}
           <span className="_gradient">3D</span> for a year, which has led me
           into the world of <span className="_gradient">game</span> <br />
           <span className="_gradient">development</span>.<br />

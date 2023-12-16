@@ -2,13 +2,12 @@ import ChatImage from "../assets/chatScrennShoot.png";
 import MovieImage from "../assets/roomScreenCapture.png";
 import { IconButton } from "./Buttons";
 import DataContext from "../context/DataContext";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { subtitleTextVariant } from "../animation/variants";
 
 export default function Project() {
-  const { darkMode } = useContext(DataContext);
-
+  const { darkMode, width, height } = useContext(DataContext);
   return (
     <section
       className={`container-fluid mt-184  ${
@@ -55,8 +54,12 @@ export default function Project() {
 }
 
 function Card({ image, title, description, darkMode, projectLink }) {
+  const { width, height } = useContext(DataContext);
   const [cardHover, setCardHover] = useState(false);
 
+  useEffect(() => {
+    width <= 990 ? setCardHover(true) : setCardHover(false); 
+  }, [width])
   return (
     <div
       className={`_projectCard d-flex flex-column align-items-center ${
@@ -73,8 +76,8 @@ function Card({ image, title, description, darkMode, projectLink }) {
           className="card-img-top rounded-3"
           alt=""
           height="319px"
-          onMouseEnter={() => setCardHover(true)}
-          onMouseLeave={() => setCardHover(false)}
+          onMouseEnter={() => width >= 990 ? setCardHover(true) : null}
+          onMouseLeave={() => width >= 990 ? setCardHover(false) : null}
           style={{
             filter: cardHover ? "blur(1px)" : "",
             transition: "filter 0.5s ease",

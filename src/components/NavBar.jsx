@@ -2,9 +2,8 @@ import { useContext, useEffect } from "react";
 import { IconButton } from "./Buttons";
 import { useState } from "react";
 import DataContext from "../context/DataContext";
-import {motion} from 'framer-motion';
+import { motion } from "framer-motion";
 export default function NavBar() {
-
   const {
     darkMode,
     setDarkMode,
@@ -14,13 +13,14 @@ export default function NavBar() {
     navLinks,
     language,
     setLanguage,
+    displayNav,
+    setDisplayNav,
   } = useContext(DataContext);
 
   const hashName = window.location.hash;
-  const [displayNav, setDisplayNav] = useState(false);
-  useEffect(() =>{
-    document.body.style.overflow = displayNav ? 'hidden' : 'auto';
-  }, [displayNav])
+  useEffect(() => {
+    document.body.style.overflow = displayNav ? "hidden" : "auto";
+  }, [displayNav]);
   useEffect(() => {
     handleNavSelected(hashName.slice(1));
   }, [hashName]);
@@ -106,8 +106,11 @@ export default function NavBar() {
           </div>
         </div>
         {displayNav ? (
-          <div
-            className={`container-fluid   d-flex justify-content-center  align-items-center flex-column 
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: displayNav ? 1 : 0 }}
+            transition={{ duration: 0.5 }}
+            className={`container-fluid  d-flex justify-content-center  align-items-center flex-column 
                       row-gap-32 _navLink
                       ${
                         darkMode
@@ -122,9 +125,11 @@ export default function NavBar() {
               />
             </div>
             {phoneNavLinkElement}
-          </div>
+          </motion.div>
         ) : (
-          <div className="col-2 d-block d-lg-none">
+          <div
+            className={`col-2 d-${!displayNav ? "block" : "none"} d-lg-none `}
+          >
             <IconButton
               icon="bi bi-list"
               handleClick={() => {
@@ -157,7 +162,14 @@ export default function NavBar() {
   );
 }
 
-function NavLink({ id, active, name, handleNavSelected, darkMode, fontSize = '_lead' }) {
+function NavLink({
+  id,
+  active,
+  name,
+  handleNavSelected,
+  darkMode,
+  fontSize = "_lead",
+}) {
   return (
     <a
       href={`#${id}`}

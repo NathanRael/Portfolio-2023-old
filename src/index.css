@@ -76,6 +76,11 @@ body::-webkit-scrollbar-thumb:hover {
     border-radius: 100%;
 }
 
+._skillImage img{
+    width: 100%;
+    height: 100%;
+}
+
 ._navbar{
     background-color: rgba(65, 45, 119, 0.1) ;
     backdrop-filter: blur(4px);
@@ -96,6 +101,12 @@ body::-webkit-scrollbar-thumb:hover {
         left: 50%;
         transform: translateX(-50%);
     }
+
+    ._skillImage{
+        width: 100px;
+        height: 100px;
+    }
+
 }
 @media screen and (max-width : 768px) {
     

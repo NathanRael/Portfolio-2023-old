@@ -18,17 +18,17 @@ export default function Skill() {
     {
       name: "Html",
       image: HtmlIcon,
-      delay: 0.5,
+      delay: 0.2,
     },
     {
       name: "Css",
       image: CssIcon,
-      delay: 0.5,
+      delay: 0.3,
     },
     {
       name: "Javascript",
       image: JsIcon,
-      delay: 0.5,
+      delay: 0.4,
     },
     {
       name: "JQuery",
@@ -38,18 +38,23 @@ export default function Skill() {
     {
       name: "Bootstrap",
       image: BootstrapIcon,
-      delay: 0.5,
+      delay: 0.6,
     },
     {
       name: "React",
       image: ReactIcon,
-      delay: 0.5,
+      delay: 0.7,
+    },
+    {
+      name: "Figma",
+      image: FigmaIcon,
+      delay: 0.9,
     },
   ];
 
   const skillElements = mySkills.map((skill) => (
     <div className="col-auto">
-      <SkillItem name={skill.name} image={skill.image} darkMode={darkMode} />
+      <SkillItem name={skill.name} image={skill.image} darkMode={darkMode} custom={skill.delay}  />
     </div>
   ));
   return (
@@ -80,7 +85,7 @@ export default function Skill() {
   );
 }
 
-function SkillItem({ image, name, darkMode }) {
+function SkillItem({ image, name, darkMode, custom }) {
   const skillVariant = {
     hover: {
       scale: 1.2,
@@ -90,6 +95,16 @@ function SkillItem({ image, name, darkMode }) {
       scale: 0.9,
       transition: { duration: 0.1 },
     },
+
+    visible : i => ({
+      opacity : 1,
+      y : 0,
+      transition : {
+        duration : i
+      },
+    }),
+
+    hidden : {opacity : 0, y : 20},
     constraint: {
       top: 5,
       left: 5,
@@ -99,17 +114,21 @@ function SkillItem({ image, name, darkMode }) {
   };
   return (
     <motion.div
+
     drag 
+    custom={custom}
     dragConstraints={skillVariant.constraint}
     variants={skillVariant}
     whileHover="hover"
+    initial="hidden"
+    whileInView="visible"
     
       className={`container-fluid d-flex flex-column align-items-center row-gap-16 _grab  ${
         darkMode ? "text-light" : "text-dark"
       }`}
     >
       <div className="d-flex justify-content-center align-items-center _skillImage">
-        <img src={image} alt="" width="80" height="80" />
+        <img src={image} alt=""  />
       </div>
       <div
         className={`rounded-2 text-center _body px-8 ${
