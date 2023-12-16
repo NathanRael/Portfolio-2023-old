@@ -7,66 +7,73 @@ import HtmlIcon from "../assets/html.png";
 import JQuerIcon from "../assets/jquery.png";
 import { useContext } from "react";
 import DataContext from "../context/DataContext";
+import { subtitleTextVariant } from "../animation/variants";
+import { motion } from "framer-motion";
+
 
 export default function Skill() {
   const { darkMode } = useContext(DataContext);
 
+  const mySkills = [
+    {
+      name: "Html",
+      image: HtmlIcon,
+      delay: 0.5,
+    },
+    {
+      name: "Css",
+      image: CssIcon,
+      delay: 0.5,
+    },
+    {
+      name: "Javascript",
+      image: JsIcon,
+      delay: 0.5,
+    },
+    {
+      name: "JQuery",
+      image: JQuerIcon,
+      delay: 0.5,
+    },
+    {
+      name: "Bootstrap",
+      image: BootstrapIcon,
+      delay: 0.5,
+    },
+    {
+      name: "React",
+      image: ReactIcon,
+      delay: 0.5,
+    },
+  ];
+
+  const skillElements = mySkills.map((skill) => (
+    <div className="col-auto">
+      <SkillItem name={skill.name} image={skill.image} darkMode={darkMode} />
+    </div>
+  ));
   return (
-    <section className={`container-fluid mt-184 ${darkMode ? 'text-light bg-secondary' : 'text-dark bg-light'}`} id="skill">
-      <h1 className={`_title-2 ${darkMode ? 'text-light' : ''} mb-40 text-center text-md-start`}>
+    <section
+      className={`container-fluid mt-184 ${
+        darkMode ? "text-light bg-secondary" : "text-dark bg-light"
+      }`}
+      id="skill"
+    >
+      <motion.h1
+      custom={0.3}
+      variants={subtitleTextVariant}
+      initial='hidden'
+      whileInView='visible'
+        className={`_title-2 ${
+          darkMode ? "text-light" : ""
+        } mb-40 text-center text-lg-start`}
+        style={{transformOrigin : 'left'}}
+      >
         My current <span className="text-primary">Skills</span>
-      </h1>
+      </motion.h1>
       <div className="container-fluid px-0">
         <div className="row row-col-4 row-gap-40 justify-content-center">
-          <div className="col-6 col-md-3">
-            <SkillItem
-              image={HtmlIcon}
-              name="Html"
-              darkMode={darkMode}
-            />
-          </div>
-          <div className="col-6 col-md-3">
-            <SkillItem
-              image={CssIcon}
-              name="Css"
-              darkMode={darkMode}
-            />
-          </div>
-          <div className="col-6 col-md-3">
-            <SkillItem
-              image={JsIcon}
-              name="Javascript"
-              darkMode={darkMode}
-            />
-          </div>
-          <div className="col-6 col-md-3">
-            <SkillItem
-              image={JQuerIcon}
-              name="JQuery"
-              darkMode={darkMode}
-            />
-          </div>
-          <div className="col-6 col-md-3">
-            <SkillItem
-              image={BootstrapIcon}
-              name="Bootstrap"
-              darkMode={darkMode}
-            />
-          </div>
-          <div className="col-6 col-md-3">
-            <SkillItem
-              image={ReactIcon}
-              name="React js"
-              darkMode={darkMode}
-            />
-          </div>
-          <div className="col-6 col-md-3">
-            <SkillItem
-              image={FigmaIcon}
-              name="Figma"
-              darkMode={darkMode}
-            />
-          </div>
+          {skillElements}
         </div>
       </div>
     </section>
@@ -74,13 +81,32 @@ export default function Skill() {
 }
 
 function SkillItem({ image, name, darkMode }) {
+  const skillVariant = {
+    hover: {
+      scale: 1.2,
+      transition: { duration: 0.2 },
+    },
+    tap: {
+      scale: 0.9,
+      transition: { duration: 0.1 },
+    },
+  };
   return (
-    <div className={`container-fluid d-flex flex-column align-items-center row-gap-16 ${darkMode ? 'text-light bg-secondary' : 'text-dark bg-light'}`}>
+    <motion.div
+    variants={skillVariant}
+    whileHover="hover"
+    
+      className={`container-fluid d-flex flex-column align-items-center row-gap-16  ${
+        darkMode ? "text-light bg-secondary" : "text-dark bg-light"
+      }`}
+    >
       <div className="d-flex justify-content-center align-items-center _skillImage">
         <img src={image} alt="" width="80" height="80" />
       </div>
       <div
-        className={`rounded-2 text-center _body px-8 ${darkMode ? 'text-light' : ''}`}
+        className={`rounded-2 text-center _body px-8 ${
+          darkMode ? "text-light" : ""
+        }`}
         style={{
           width: "max-content",
           backgroundColor: "rgba(111, 62, 244,0.5)",
@@ -88,6 +114,6 @@ function SkillItem({ image, name, darkMode }) {
       >
         {name}
       </div>
-    </div>
+    </motion.div>
   );
 }

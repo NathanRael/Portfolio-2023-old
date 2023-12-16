@@ -3,6 +3,8 @@ import MovieImage from "../assets/roomScreenCapture.png";
 import { IconButton } from "./Buttons";
 import DataContext from "../context/DataContext";
 import { useContext, useState } from "react";
+import { motion } from "framer-motion";
+import { subtitleTextVariant } from "../animation/variants";
 
 export default function Project() {
   const { darkMode } = useContext(DataContext);
@@ -14,16 +16,21 @@ export default function Project() {
       }`}
       id="project"
     >
-      <h1
+      <motion.h1
+        custom={0.2}
+        variants={subtitleTextVariant}
+        initial="hidden"
+        whileInView="visible"
         className={`_title-2 ${
           darkMode ? "text-light" : ""
-        } mb-40 text-center text-md-start`}
+        } mb-40 text-center text-lg-start`}
+        style={{transformOrigin : 'left'}}
       >
         My personal <span className="text-primary">projects</span>
-      </h1>
+      </motion.h1>
       <div className="container-fluid px-0">
         <div className="row  justify-content-center row-gap-40">
-          <div className="col-12 col-xl-6 mx-0 d-flex justify-content-center">
+          <div className="col-12 col-lg-6 mx-0 d-flex justify-content-center">
             <Card
               image={MovieImage}
               title="Movie website"
@@ -32,7 +39,7 @@ export default function Project() {
               projectLink="https://nathanrael-movie.netlify.app"
             />
           </div>
-          <div className="col-12 col-xl-6 mx-0 d-flex justify-content-center">
+          <div className="col-12 col-lg-6 mx-0 d-flex justify-content-center">
             <Card
               image={ChatImage}
               title="ChatBot website"
@@ -56,8 +63,12 @@ function Card({ image, title, description, darkMode, projectLink }) {
         darkMode ? "text-light bg-secondary" : "text-dark bg-light"
       }`}
     >
-      <div className={`card p-8 bg-secondary border-light rounded-4`}>
-        <img
+      <motion.div
+        className={`card p-8 bg-secondary border-light rounded-4`}
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.3 }}
+      >
+        <motion.img
           src={image}
           className="card-img-top rounded-3"
           alt=""
@@ -69,10 +80,14 @@ function Card({ image, title, description, darkMode, projectLink }) {
             transition: "filter 0.5s ease",
           }}
         />
-        <div
+        <motion.div
           className="container-fluid position-absolute top-50 start-50 translate-middle _transOpacity"
-          style={{ width: "max-content", opacity: cardHover ? 1 : 0 }}
+          style={{
+            width: "max-content",
+            opacity: cardHover ? 1 : 0,
+          }}
           onMouseEnter={() => setCardHover(true)}
+          onMouseLeave={() => setCardHover(false)}
         >
           <IconButton
             icon="bi bi-eye"
@@ -81,8 +96,8 @@ function Card({ image, title, description, darkMode, projectLink }) {
               setCardHover(false);
             }}
           />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
       <div className="container-fluid m-0 mt-16 p-0">
         <h1
           className={`card-title _subtitle ${darkMode ? "text-altlight" : ""}`}

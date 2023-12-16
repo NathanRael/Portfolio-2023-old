@@ -1,3 +1,18 @@
+import { motion } from "framer-motion";
+
+export const buttonVariant = {
+  hover: {
+    backgroundColor: "#543a9b",
+    scale: 1.1,
+    transition: { duration: 0.2 },
+  },
+
+
+  tap: {
+    scale: 0.9,
+  },
+};
+
 const IconFs = {
   fontSize: "24px",
 };
@@ -10,7 +25,10 @@ export function BigButton({
   handleClick,
 }) {
   return (
-    <button
+    <motion.button
+      variants={buttonVariant}
+      whileHover="hover"
+      whileTap="tap"
       className={`btn ${color} btn-lg px-32 py-16 text-ligh d-flex align-items-center justify-content-center _body shadow`}
       style={{ width: "max-content" }}
       onClick={handleClick}
@@ -18,7 +36,7 @@ export function BigButton({
       {inverseIcon ? <i className={`${icon} me-8`} style={IconFs}></i> : ""}
       <span>{name}</span>
       {!inverseIcon ? <i className={`${icon} ms-8`} style={IconFs}></i> : ""}
-    </button>
+    </motion.button>
   );
 }
 export function MdButton({
@@ -29,14 +47,17 @@ export function MdButton({
   handleClick,
 }) {
   return (
-    <button
+    <motion.button
+      variants={buttonVariant}
+      whileTap="tap"
+      whileHover="hover"
       className={`btn ${color}  px-24 py-12 text-ligh d-flex align-items-center justify-content-center _body shadow`}
       onClick={handleClick}
     >
       {inverseIcon ? <i className={`${icon} me-8`} style={IconFs}></i> : ""}
       <span>{name}</span>
       {!inverseIcon ? <i className={`${icon} ms-8`} style={IconFs}></i> : ""}
-    </button>
+    </motion.button>
   );
 }
 
@@ -47,13 +68,16 @@ export function IconButton({
   handleClick,
 }) {
   return (
-    <a
+    <motion.a
+      variants={buttonVariant}
+      whileHover="hover"
+      whileTap="tap"
       onClick={handleClick}
       className={`btn ${color} p-12 rounded-5 d-flex align-items-center justify-content-center _body shadow `}
       style={{ width: "48px", height: "48px" }}
       href={href}
     >
       <i className={icon} style={{ fontSize: "24px" }}></i>
-    </a>
+    </motion.a>
   );
 }

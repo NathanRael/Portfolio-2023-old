@@ -1,4 +1,5 @@
 
+._colorTrans{ transition: color 0.5s ease-in-out ;}
 
 span.intLink {
     cursor: pointer;
@@ -6,9 +7,9 @@ span.intLink {
     text-decoration: underline;
   }
 
-*{
+/* *{
     transition:  background-color,color 0.5s ease;
-}
+} */
 
 ._transOpacity{transition: opacity 0.5s ease;}
 

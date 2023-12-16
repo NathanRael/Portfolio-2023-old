@@ -2,8 +2,9 @@ import { useContext, useEffect } from "react";
 import { IconButton } from "./Buttons";
 import { useState } from "react";
 import DataContext from "../context/DataContext";
-
+import {motion} from 'framer-motion';
 export default function NavBar() {
+
   const {
     darkMode,
     setDarkMode,
@@ -177,7 +178,7 @@ function NavLink({ id, active, name, handleNavSelected, darkMode, fontSize = '_l
 function Language({ name, selected, handleSelect, darkMode }) {
   const id = name.toLowerCase();
   return (
-    <div
+    <motion.div
       className={`container-fluid d-inline-flex ${
         darkMode ? "text-light" : "text-dark"
       }`}
@@ -202,18 +203,18 @@ function Language({ name, selected, handleSelect, darkMode }) {
       >
         {name}
       </label>
-    </div>
+    </motion.div>
   );
 }
 
 function DarkModeIcon({ darkMode = true, setDarkMode }) {
   return (
     <>
-      <i
+      <motion.i
         className={`${darkMode ? "bi bi-moon" : "bi bi-sun"} _icon`}
         onClick={setDarkMode}
         type="button"
-      ></i>
+      ></motion.i>
     </>
   );
 }

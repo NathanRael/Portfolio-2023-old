@@ -9,11 +9,6 @@ import Circle from "./components/Circle";
 
 import { DataProvider } from "./context/DataContext";
 
-/**
- * - Adding Responsive
- * - Adding interaction : show eye when hovering project card
- *
- */
 
 export default function App() {
   return (

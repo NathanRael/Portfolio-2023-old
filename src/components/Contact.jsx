@@ -2,6 +2,8 @@ import { MdButton } from "./Buttons";
 import DataContext from "../context/DataContext";
 import { useContext } from "react";
 import myCv from "../assets/myCV.png";
+import { motion } from "framer-motion";
+import { subtitleTextVariant } from "../animation/variants";
 
 export default function Contact() {
   const { darkMode } = useContext(DataContext);
@@ -12,13 +14,17 @@ export default function Contact() {
       }`}
       id="contact"
     >
-      <h1
+      <motion.h1
+        custom={0.3}
+        variants={subtitleTextVariant}
+        initial="hidden"
+        whileInView="visible"
         className={`_title-2 mb-40 ${
           darkMode ? "text-light" : ""
-        } text-center text-md-start`}
+        } text-center text-lg-start`}
       >
         Feel free to <span className="text-primary">contact</span> me
-      </h1>
+      </motion.h1>
       <div className="container-fluid pe-0 ps-80 ps-sm-0">
         <MdButton
           name="ralaivoavy.natanael@gmail.com"
