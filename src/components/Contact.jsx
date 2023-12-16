@@ -22,6 +22,7 @@ export default function Contact() {
         className={`_title-2 mb-40 ${
           darkMode ? "text-light" : ""
         } text-center text-lg-start`}
+        style={{transformOrigin : 'left'}}
       >
         Feel free to <span className="text-primary">contact</span> me
       </motion.h1>

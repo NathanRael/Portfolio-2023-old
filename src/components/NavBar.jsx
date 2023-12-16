@@ -107,7 +107,7 @@ export default function NavBar() {
         </div>
         {displayNav ? (
           <div
-            className={`container-fluid d-block d-lg-none  d-flex justify-content-center  align-items-center flex-column 
+            className={`container-fluid   d-flex justify-content-center  align-items-center flex-column 
                       row-gap-32 _navLink
                       ${
                         darkMode

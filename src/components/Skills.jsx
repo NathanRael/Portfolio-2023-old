@@ -90,14 +90,22 @@ function SkillItem({ image, name, darkMode }) {
       scale: 0.9,
       transition: { duration: 0.1 },
     },
+    constraint: {
+      top: 5,
+      left: 5,
+      bottom: 5,
+      right: 5,
+    },
   };
   return (
     <motion.div
+    drag 
+    dragConstraints={skillVariant.constraint}
     variants={skillVariant}
     whileHover="hover"
     
-      className={`container-fluid d-flex flex-column align-items-center row-gap-16  ${
-        darkMode ? "text-light bg-secondary" : "text-dark bg-light"
+      className={`container-fluid d-flex flex-column align-items-center row-gap-16 _grab  ${
+        darkMode ? "text-light" : "text-dark"
       }`}
     >
       <div className="d-flex justify-content-center align-items-center _skillImage">

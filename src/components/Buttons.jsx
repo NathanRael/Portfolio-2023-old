@@ -7,9 +7,15 @@ export const buttonVariant = {
     transition: { duration: 0.2 },
   },
 
-
   tap: {
     scale: 0.9,
+  },
+
+  constraint: {
+    top: 5,
+    left: 5,
+    bottom: 5,
+    right: 5,
   },
 };
 
@@ -26,6 +32,8 @@ export function BigButton({
 }) {
   return (
     <motion.button
+      drag
+      dragConstraints={buttonVariant.constraint}
       variants={buttonVariant}
       whileHover="hover"
       whileTap="tap"
@@ -48,6 +56,8 @@ export function MdButton({
 }) {
   return (
     <motion.button
+      drag
+      dragConstraints={buttonVariant.constraint}
       variants={buttonVariant}
       whileTap="tap"
       whileHover="hover"
@@ -69,6 +79,8 @@ export function IconButton({
 }) {
   return (
     <motion.a
+      drag
+      dragConstraints={buttonVariant.constraint}
       variants={buttonVariant}
       whileHover="hover"
       whileTap="tap"

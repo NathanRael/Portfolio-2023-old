@@ -1,6 +1,8 @@
 
 ._colorTrans{ transition: color 0.5s ease-in-out ;}
 
+._grab{cursor: grab;}
+
 span.intLink {
     cursor: pointer;
     color: #0000ff;
