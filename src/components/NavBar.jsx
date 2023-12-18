@@ -173,7 +173,6 @@ function NavLink({
 }) {
   return (
     <motion.a
-      whileHover=''
       href={`#${id}`}
       className={`_no-deco ${
         active
