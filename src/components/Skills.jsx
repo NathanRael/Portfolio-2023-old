@@ -120,10 +120,12 @@ function SkillItem({ image, name, darkMode, custom }) {
       right: 5,
     },
   };
+
+  const { width  } = useContext(DataContext);
   return (
     <motion.div
-      // drag
-      // dragConstraints={skillVariant.constraint}
+      drag={width >= 995 ? true : false}
+      dragConstraints={skillVariant.constraint}
       custom={custom}
       variants={skillVariant}
       whileHover="hover"
