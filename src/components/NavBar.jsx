@@ -17,14 +17,11 @@ export default function NavBar() {
     setDisplayNav,
   } = useContext(DataContext);
 
+  const allLinks = ["Home", "About", "Project", "Skill", "Contact"];
   const hashName = window.location.hash;
   useEffect(() => {
     document.body.style.overflow = displayNav ? "hidden" : "auto";
   }, [displayNav]);
-
-  // useEffect(() => {
-  //   handleNavSelected(hashName.slice(1));
-  // }, [hashName]);
 
   useEffect(() => {
     document.querySelector("body").classList = darkMode
@@ -53,14 +50,7 @@ export default function NavBar() {
   ));
 
   const navLinkElement = navLinks.map((nav) => (
-    <NavLink
-      key={nav.id}
-      id={nav.id}
-      name={nav.name}
-      active={nav.active}
-      // handleNavSelected={handleNavSelected}
-      darkMode={darkMode}
-    />
+    <NavLink key={nav.id} id={nav.id} name={nav.name} darkMode={darkMode} />
   ));
 
   const phoneNavLinkElement = navLinks.map((nav) => (
@@ -68,8 +58,6 @@ export default function NavBar() {
       key={nav.id}
       id={nav.id}
       name={nav.name}
-      active={nav.active}
-      handleNavSelected={handleNavSelected}
       darkMode={darkMode}
       fontSize="_subtitle"
     />
@@ -103,7 +91,11 @@ export default function NavBar() {
             row-gap-32 
             ${darkMode ? "text-light bg-secondary" : "text-dark bg-light"}`}
           >
-            {navLinkElement}
+            {allLinks.map(item => (
+              <li key={`link-${item} `}>
+                <motion.a whileHover={{ color : '#000'}} href={`#${item}`} className="nav-link "> {item} </motion.a>
+              </li>
+            ))}
           </div>
         </div>
         {displayNav ? (
@@ -167,13 +159,12 @@ function NavLink({
   id,
   active,
   name,
-  handleNavSelected,
+  handleNavHover,
   darkMode,
   fontSize = "_lead",
 }) {
   return (
     <motion.a
-      whileHover=''
       href={`#${id}`}
       className={`_no-deco ${
         active
@@ -182,7 +173,7 @@ function NavLink({
           ? "text-light bg-secondary"
           : "text-dark bg-light"
       } ${fontSize} `}
-      // onClick={() => handleNavSelected(id)}
+      onHoverStart={handleNavHover}
     >
       {name}
     </motion.a>
