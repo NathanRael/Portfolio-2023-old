@@ -7,10 +7,6 @@ export default function NavBar() {
   const {
     darkMode,
     setDarkMode,
-    handleNavSelected,
-    navlink,
-    setNavLink,
-    navLinks,
     language,
     setLanguage,
     displayNav,
@@ -18,7 +14,6 @@ export default function NavBar() {
   } = useContext(DataContext);
 
   const allLinks = ["Home", "About", "Project", "Skill", "Contact"];
-  const hashName = window.location.hash;
   useEffect(() => {
     document.body.style.overflow = displayNav ? "hidden" : "auto";
   }, [displayNav]);
@@ -49,19 +44,6 @@ export default function NavBar() {
     />
   ));
 
-  const navLinkElement = navLinks.map((nav) => (
-    <NavLink key={nav.id} id={nav.id} name={nav.name} darkMode={darkMode} />
-  ));
-
-  const phoneNavLinkElement = navLinks.map((nav) => (
-    <NavLink
-      key={nav.id}
-      id={nav.id}
-      name={nav.name}
-      darkMode={darkMode}
-      fontSize="_subtitle"
-    />
-  ));
   return (
     <nav
       className={`container-fluid py-12  _body px-16 px-md-72 position-fixed top-0 _navbar ${
@@ -91,9 +73,16 @@ export default function NavBar() {
             row-gap-32 
             ${darkMode ? "text-light bg-secondary" : "text-dark bg-light"}`}
           >
-            {allLinks.map(item => (
-              <li key={`link-${item} `}>
-                <motion.a whileHover={{ color : '#000'}} href={`#${item}`} className="nav-link "> {item} </motion.a>
+            {allLinks.map((item) => (
+              <li className="_no-deco" key={"link-" + item}>
+                <a
+                  href={`#${item}`}
+                  className={`_no-deco _lead  ${
+                    darkMode ? "_text-light " : "_text-dark"
+                  } _navLink`}
+                >
+                  {item}
+                </a>
               </li>
             ))}
           </div>
@@ -117,7 +106,18 @@ export default function NavBar() {
                 handleClick={() => setDisplayNav(false)}
               />
             </div>
-            {phoneNavLinkElement}
+            {allLinks.map((item) => (
+              <li className="_no-deco" key={"link-" + item}>
+                <a
+                  href={`#${item}`}
+                  className={`_no-deco _subtitle  ${
+                    darkMode ? "text-light " : "text-dark"
+                  } `}
+                >
+                  {item}
+                </a>
+              </li>
+            ))}
           </motion.div>
         ) : (
           <div
@@ -152,31 +152,6 @@ export default function NavBar() {
         </div>
       </div>
     </nav>
-  );
-}
-
-function NavLink({
-  id,
-  active,
-  name,
-  handleNavHover,
-  darkMode,
-  fontSize = "_lead",
-}) {
-  return (
-    <motion.a
-      href={`#${id}`}
-      className={`_no-deco ${
-        active
-          ? "text-primary"
-          : darkMode
-          ? "text-light bg-secondary"
-          : "text-dark bg-light"
-      } ${fontSize} `}
-      onHoverStart={handleNavHover}
-    >
-      {name}
-    </motion.a>
   );
 }
 

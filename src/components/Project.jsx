@@ -13,7 +13,7 @@ export default function Project() {
       className={`container-fluid mt-184  ${
         darkMode ? "text-light bg-secondary" : "text-dark bg-light"
       }`}
-      id="project"
+      id="Project"
     >
       <motion.h1
         custom={0.2}

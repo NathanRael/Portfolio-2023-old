@@ -1,11 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import navlink from "../components/navlink.js";
 import PortfolioData from "../functions/portfolioData.js";
 import useWindowSize from "../hook/useWindowSize";
 const DataContext = createContext({});
 
 export const DataProvider = ({ children }) => {
-  const [navLinks, setNavLinks] = useState(navlink);
   const [darkMode, setDarkMode] = useState(true);
   const {width, height} = useWindowSize();
   const redirect = (link) => {
@@ -17,15 +15,6 @@ export const DataProvider = ({ children }) => {
 
   const [language, setLanguage] = useState([]);
 
-  // const handleNavSelected = (id) => {
-  //   // setDisplayNav(false);
-  //   setNavLinks((prevNav) => {
-  //     return prevNav.map((item) =>
-  //       id === item.id ? { ...item, active: true } : { ...item, active: false }
-  //     );
-  //   });
-    
-  // };
 
   const saveCurrentLang = () => {
     let lang;
@@ -58,10 +47,6 @@ export const DataProvider = ({ children }) => {
         darkMode,
         setDarkMode,
         redirect,
-        // handleNavSelected,
-        navLinks,
-        setNavLinks,
-        navlink,
         language,
         setLanguage,
         width,

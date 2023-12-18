@@ -12,7 +12,7 @@ export default function Contact() {
       className={`container-fluid mt-184 ${
         darkMode ? "text-light bg-secondary" : "text-dark bg-light"
       }`}
-      id="contact"
+      id="Contact"
     >
       <motion.h1
         custom={0.3}
