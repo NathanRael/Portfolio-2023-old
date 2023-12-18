@@ -59,7 +59,7 @@ export default function Hero() {
               darkMode={darkMode}
               handleClick={() => {
                 redirect("project");
-                handleNavSelected("project");
+                // handleNavSelected("project");
               }}
             />
           </motion.div>

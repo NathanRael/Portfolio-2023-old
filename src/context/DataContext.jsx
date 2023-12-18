@@ -17,15 +17,15 @@ export const DataProvider = ({ children }) => {
 
   const [language, setLanguage] = useState([]);
 
-  const handleNavSelected = (id) => {
-    // setDisplayNav(false);
-    setNavLinks((prevNav) => {
-      return prevNav.map((item) =>
-        id === item.id ? { ...item, active: true } : { ...item, active: false }
-      );
-    });
+  // const handleNavSelected = (id) => {
+  //   // setDisplayNav(false);
+  //   setNavLinks((prevNav) => {
+  //     return prevNav.map((item) =>
+  //       id === item.id ? { ...item, active: true } : { ...item, active: false }
+  //     );
+  //   });
     
-  };
+  // };
 
   const saveCurrentLang = () => {
     let lang;
@@ -58,7 +58,7 @@ export const DataProvider = ({ children }) => {
         darkMode,
         setDarkMode,
         redirect,
-        handleNavSelected,
+        // handleNavSelected,
         navLinks,
         setNavLinks,
         navlink,

@@ -21,9 +21,10 @@ export default function NavBar() {
   useEffect(() => {
     document.body.style.overflow = displayNav ? "hidden" : "auto";
   }, [displayNav]);
-  useEffect(() => {
-    handleNavSelected(hashName.slice(1));
-  }, [hashName]);
+
+  // useEffect(() => {
+  //   handleNavSelected(hashName.slice(1));
+  // }, [hashName]);
 
   useEffect(() => {
     document.querySelector("body").classList = darkMode
@@ -57,7 +58,7 @@ export default function NavBar() {
       id={nav.id}
       name={nav.name}
       active={nav.active}
-      handleNavSelected={handleNavSelected}
+      // handleNavSelected={handleNavSelected}
       darkMode={darkMode}
     />
   ));
@@ -171,7 +172,8 @@ function NavLink({
   fontSize = "_lead",
 }) {
   return (
-    <a
+    <motion.a
+      whileHover=''
       href={`#${id}`}
       className={`_no-deco ${
         active
@@ -180,10 +182,10 @@ function NavLink({
           ? "text-light bg-secondary"
           : "text-dark bg-light"
       } ${fontSize} `}
-      onClick={() => handleNavSelected(id)}
+      // onClick={() => handleNavSelected(id)}
     >
       {name}
-    </a>
+    </motion.a>
   );
 }
 
