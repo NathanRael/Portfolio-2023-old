@@ -3,15 +3,21 @@
 
 ._grab{cursor: grab;}
 
+._navLink{
+    color: #fafafafa;
+    transition: color 0.2s ease-out;
+}
+._navLink:hover{
+    color: #4D2599;
+}
+
+
 span.intLink {
     cursor: pointer;
     color: #0000ff;
     text-decoration: underline;
   }
 
-/* *{
-    transition:  background-color,color 0.5s ease;
-} */
 
 ._transOpacity{transition: opacity 0.5s ease;}
 
@@ -87,6 +93,8 @@ body::-webkit-scrollbar-thumb:hover {
     -webkit-backdrop-filter: blur(4px);
     z-index: 4;
 }
+
+
 
 @media screen and (max-width : 1200px) {
     

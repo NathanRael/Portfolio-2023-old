@@ -10,7 +10,6 @@ import DataContext from "../context/DataContext";
 import { subtitleTextVariant } from "../animation/variants";
 import { motion } from "framer-motion";
 
-
 export default function Skill() {
   const { darkMode } = useContext(DataContext);
 
@@ -53,8 +52,17 @@ export default function Skill() {
   ];
 
   const skillElements = mySkills.map((skill) => (
-    <div className="col-6 col-md-4 col-lg-auto" style={{width : 'max-content'}}>
-      <SkillItem name={skill.name} image={skill.image} darkMode={darkMode} custom={skill.delay}  />
+    <div
+      className="col-6 col-md-4 col-lg-auto"
+      style={{ width: "max-content" }}
+    >
+      <SkillItem
+        key={skill.name}
+        name={skill.name}
+        image={skill.image}
+        darkMode={darkMode}
+        custom={skill.delay}
+      />
     </div>
   ));
   return (
@@ -62,17 +70,17 @@ export default function Skill() {
       className={`container-fluid mt-184 ${
         darkMode ? "text-light bg-secondary" : "text-dark bg-light"
       }`}
-      id="skill"
+      id="Skill"
     >
       <motion.h1
-      custom={0.3}
-      variants={subtitleTextVariant}
-      initial='hidden'
-      whileInView='visible'
+        custom={0.3}
+        variants={subtitleTextVariant}
+        initial="hidden"
+        whileInView="visible"
         className={`_title-2 ${
           darkMode ? "text-light" : ""
         } mb-40 text-center text-lg-start`}
-        style={{transformOrigin : 'left'}}
+        style={{ transformOrigin: "left" }}
       >
         My current <span className="text-primary">Skills</span>
       </motion.h1>
@@ -96,15 +104,15 @@ function SkillItem({ image, name, darkMode, custom }) {
       transition: { duration: 0.1 },
     },
 
-    visible : i => ({
-      opacity : 1,
-      y : 0,
-      transition : {
-        duration : i
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: i,
       },
     }),
 
-    hidden : {opacity : 0, y : 20},
+    hidden: { opacity: 0, y: 20 },
     constraint: {
       top: 5,
       left: 5,
@@ -114,22 +122,19 @@ function SkillItem({ image, name, darkMode, custom }) {
   };
   return (
     <motion.div
-
-    // drag 
-    // dragConstraints={skillVariant.constraint}
-    custom={custom}
-
-    variants={skillVariant}
-    whileHover="hover"
-    initial="hidden"
-    whileInView="visible"
-    
+      // drag
+      // dragConstraints={skillVariant.constraint}
+      custom={custom}
+      variants={skillVariant}
+      whileHover="hover"
+      initial="hidden"
+      whileInView="visible"
       className={`container-fluid d-flex flex-column align-items-center row-gap-16 _grab  ${
         darkMode ? "text-light" : "text-dark"
       }`}
     >
       <div className="d-flex justify-content-center align-items-center _skillImage">
-        <img src={image} alt=""  />
+        <img src={image} alt="" />
       </div>
       <div
         className={`rounded-2 text-center _body px-8 ${

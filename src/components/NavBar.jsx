@@ -7,24 +7,16 @@ export default function NavBar() {
   const {
     darkMode,
     setDarkMode,
-    handleNavSelected,
-    navlink,
-    setNavLink,
-    navLinks,
     language,
     setLanguage,
     displayNav,
     setDisplayNav,
   } = useContext(DataContext);
 
-  const hashName = window.location.hash;
+  const allLinks = ["Home", "About", "Project", "Skill", "Contact"];
   useEffect(() => {
     document.body.style.overflow = displayNav ? "hidden" : "auto";
   }, [displayNav]);
-
-  // useEffect(() => {
-  //   handleNavSelected(hashName.slice(1));
-  // }, [hashName]);
 
   useEffect(() => {
     document.querySelector("body").classList = darkMode
@@ -52,28 +44,6 @@ export default function NavBar() {
     />
   ));
 
-  const navLinkElement = navLinks.map((nav) => (
-    <NavLink
-      key={nav.id}
-      id={nav.id}
-      name={nav.name}
-      active={nav.active}
-      // handleNavSelected={handleNavSelected}
-      darkMode={darkMode}
-    />
-  ));
-
-  const phoneNavLinkElement = navLinks.map((nav) => (
-    <NavLink
-      key={nav.id}
-      id={nav.id}
-      name={nav.name}
-      active={nav.active}
-      handleNavSelected={handleNavSelected}
-      darkMode={darkMode}
-      fontSize="_subtitle"
-    />
-  ));
   return (
     <nav
       className={`container-fluid py-12  _body px-16 px-md-72 position-fixed top-0 _navbar ${
@@ -103,7 +73,18 @@ export default function NavBar() {
             row-gap-32 
             ${darkMode ? "text-light bg-secondary" : "text-dark bg-light"}`}
           >
-            {navLinkElement}
+            {allLinks.map((item) => (
+              <li className="_no-deco" key={"link-" + item}>
+                <a
+                  href={`#${item}`}
+                  className={`_no-deco _lead  ${
+                    darkMode ? "_text-light " : "_text-dark"
+                  } _navLink`}
+                >
+                  {item}
+                </a>
+              </li>
+            ))}
           </div>
         </div>
         {displayNav ? (
@@ -125,7 +106,18 @@ export default function NavBar() {
                 handleClick={() => setDisplayNav(false)}
               />
             </div>
-            {phoneNavLinkElement}
+            {allLinks.map((item) => (
+              <li className="_no-deco" key={"link-" + item}>
+                <a
+                  href={`#${item}`}
+                  className={`_no-deco _subtitle  ${
+                    darkMode ? "text-light " : "text-dark"
+                  } `}
+                >
+                  {item}
+                </a>
+              </li>
+            ))}
           </motion.div>
         ) : (
           <div
@@ -160,31 +152,6 @@ export default function NavBar() {
         </div>
       </div>
     </nav>
-  );
-}
-
-function NavLink({
-  id,
-  active,
-  name,
-  handleNavSelected,
-  darkMode,
-  fontSize = "_lead",
-}) {
-  return (
-    <motion.a
-      href={`#${id}`}
-      className={`_no-deco ${
-        active
-          ? "text-primary"
-          : darkMode
-          ? "text-light bg-secondary"
-          : "text-dark bg-light"
-      } ${fontSize} `}
-      // onClick={() => handleNavSelected(id)}
-    >
-      {name}
-    </motion.a>
   );
 }
 

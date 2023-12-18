@@ -44,7 +44,8 @@
 ._small{font-size: var(--small);font-family: 'plusJakarta-regular';transition: color 0.5s ease-in-out;}
 ._no-deco{text-decoration: none; list-style: none;transition: color 0.5s ease-in-out;}
 ._icon{font-size: 24px;}
-
+._text-dark {color : #363543}
+._text-light {color: FAFAFA;}
 
 @media screen and (max-width : 992px) {
     :root{

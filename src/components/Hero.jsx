@@ -14,7 +14,7 @@ export default function Hero() {
       className={`container-fluid mt-200 ${
         darkMode ? "text-light" : "text-dark"
       } `}
-      id="home"
+      id="Home"
     >
       <div className="row row-gap-64">
         <div className="col-12 col-lg-7 d-flex flex-column row-gap-40">
@@ -58,8 +58,7 @@ export default function Hero() {
               icon="bi bi-arrow-right"
               darkMode={darkMode}
               handleClick={() => {
-                redirect("project");
-                // handleNavSelected("project");
+                redirect("Project");
               }}
             />
           </motion.div>

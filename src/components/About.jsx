@@ -11,7 +11,7 @@ export default function About() {
       className={`d-flex flex-column row-gap-40 container-fluid mt-240 ${
         darkMode ? "text-light bg-secondary" : "text-dark bg-light"
       }`}
-      id="about"
+      id="About"
     >
       <motion.h1
         custom={0.2}
