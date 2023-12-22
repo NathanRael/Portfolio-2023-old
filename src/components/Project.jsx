@@ -36,7 +36,7 @@ export default function Project() {
               title="Movie website"
               description="A modern movie platform designed for efortless anime trailer discovery"
               darkMode={darkMode}
-              projectLink="https://nathanrael-movie.netlify.app"
+              projectLink="https://nathanrael-room.netlify.app"
               usedTechno={['Html', 'Css','Bootstrap', 'Javascript', 'React js']}
             />
           </div>
