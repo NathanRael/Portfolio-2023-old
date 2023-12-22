@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
+import '../animation/animation.css';
 
 export const buttonVariant = {
+
   hover: {
-    backgroundColor: "#543a9b",
+    backgroundColor: 'transparent',
     scale: 1.1,
     transition: { duration: 0.2 },
   },
@@ -37,7 +39,7 @@ export function BigButton({
       variants={buttonVariant}
       whileHover="hover"
       whileTap="tap"
-      className={`btn ${color}  btn-lg  px-32 py-16 text-ligh d-flex align-items-center justify-content-center _body shadow`}
+      className={`btn ${color}  btn-lg  px-32 py-16 text-ligh d-flex align-items-center justify-content-center _body shadow _animButton`}
       style={{ width: "max-content" }}
       onClick={handleClick}
     >
@@ -61,7 +63,7 @@ export function MdButton({
       variants={buttonVariant}
       whileTap="tap"
       whileHover="hover"
-      className={`btn ${color} px-24  py-12 text-ligh d-flex align-items-center justify-content-center _body shadow`}
+      className={`btn ${color} px-24  py-12 text-ligh d-flex align-items-center justify-content-center _body shadow _animButton`}
       onClick={handleClick}
     >
       {inverseIcon ? <i className={`${icon} me-12`} style={IconFs}></i> : ""}
@@ -85,7 +87,7 @@ export function IconButton({
       whileHover="hover"
       whileTap="tap"
       onClick={handleClick}
-      className={`btn ${color} p-12 rounded-5 d-flex align-items-center justify-content-center _body shadow `}
+      className={`btn ${color} p-12 rounded-5 d-flex align-items-center justify-content-center _body shadow _animButton`}
       style={{ width: "48px", height: "48px" }}
       href={href}
     >

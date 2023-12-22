@@ -1,0 +1,33 @@
+._animButton{
+    position: relative;
+    overflow: hidden;
+}
+
+._animButton::before{
+    position: absolute;
+    visibility: hidden;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-color: #6F3DF4;
+    /* background-color: #543a9b; */
+    z-index: 0;
+}
+
+._animButton:hover::before{
+    visibility: visible;
+    top: 80px;
+    opacity: 1;
+    z-index: -1;
+}
+
+._animButton:hover{
+    background-color: transparent;
+}
+
+._animButton::before {
+    transition: 0.3s all ease-in-out;
+}
+

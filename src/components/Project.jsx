@@ -5,6 +5,7 @@ import DataContext from "../context/DataContext";
 import { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { subtitleTextVariant } from "../animation/variants";
+import { technoVariant } from "../animation/variants";
 
 export default function Project() {
   const { darkMode, width, height } = useContext(DataContext);
@@ -28,8 +29,8 @@ export default function Project() {
         My personal <span className="text-primary">projects</span>
       </motion.h1>
       <div className="container-fluid px-0">
-        <div className="row  justify-content-center row-gap-40">
-          <div className="col-12 col-lg-6 mx-0 d-flex justify-content-center">
+        <div className="row  justify-content-between row-gap-40">
+          <div className="col-auto mx-0 ">
             <Card
               image={MovieImage}
               title="Movie website"
@@ -39,7 +40,7 @@ export default function Project() {
               usedTechno={['Html', 'Css','Bootstrap', 'Javascript', 'React js']}
             />
           </div>
-          <div className="col-12 col-lg-6 mx-0 d-flex justify-content-center">
+          <div className="col-auto mx-0 ">
             <Card
               image={ChatImage}
               title="ChatBot website"
@@ -83,6 +84,7 @@ function Card({ image, title, description, darkMode, projectLink, usedTechno }) 
           style={{
             filter: cardHover ? "blur(1px)" : "",
             transition: "filter 0.5s ease",
+            objectFit : 'cover'
           }}
         />
         <motion.div
@@ -115,12 +117,13 @@ function Card({ image, title, description, darkMode, projectLink, usedTechno }) 
         <div className="d-flex justify-content-start align-items-center container-fluid p-0 gap-24">
           {usedTechno.map((techno, index) => (
             <motion.div 
+            custom={index}
             key={techno}
-            initial={{opacity : 0}}
-            whileInView={{opacity : 1}}
-            transition={{duration : 0.5, delay : 0.4, ease : 'easeInOut',}}
+            variants={technoVariant}
+            initial='hidden'
+            whileInView='visible'
             
-            className="border border-primary text-primary py-1 px-2 rounded-3 _small">{techno}</motion.div>
+            className=" bg-primary text-light py-1 px-2 rounded-3 _small">{techno}</motion.div>
           ))}
         </div>
 

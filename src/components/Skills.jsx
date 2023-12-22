@@ -9,6 +9,7 @@ import { useContext } from "react";
 import DataContext from "../context/DataContext";
 import { subtitleTextVariant } from "../animation/variants";
 import { motion } from "framer-motion";
+import { skillVariant } from "../animation/variants";
 
 export default function Skill() {
   const { darkMode } = useContext(DataContext);
@@ -94,32 +95,7 @@ export default function Skill() {
 }
 
 function SkillItem({ image, name, darkMode, custom }) {
-  const skillVariant = {
-    hover: {
-      scale: 1.2,
-      transition: { duration: 0.2 },
-    },
-    tap: {
-      scale: 0.9,
-      transition: { duration: 0.1 },
-    },
-
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: i,
-      },
-    }),
-
-    hidden: { opacity: 0, y: 50 },
-    constraint: {
-      top: 5,
-      left: 5,
-      bottom: 5,
-      right: 5,
-    },
-  };
+  
 
   const { width  } = useContext(DataContext);
   return (
