@@ -37,7 +37,7 @@ export function BigButton({
       variants={buttonVariant}
       whileHover="hover"
       whileTap="tap"
-      className={`btn ${color} btn-lg px-32 py-16 text-ligh d-flex align-items-center justify-content-center _body shadow`}
+      className={`btn ${color}  ${inverseIcon ? 'ps-24 pe-32' : 'ps-32 pe-24'} btn-lg  py-16 text-ligh d-flex align-items-center justify-content-center _body shadow`}
       style={{ width: "max-content" }}
       onClick={handleClick}
     >
@@ -61,7 +61,7 @@ export function MdButton({
       variants={buttonVariant}
       whileTap="tap"
       whileHover="hover"
-      className={`btn ${color}  px-24 py-12 text-ligh d-flex align-items-center justify-content-center _body shadow`}
+      className={`btn ${color} ${inverseIcon ? 'ps-16 pe-24 ' : 'ps-24 pe-16'}  py-12 text-ligh d-flex align-items-center justify-content-center _body shadow`}
       onClick={handleClick}
     >
       {inverseIcon ? <i className={`${icon} me-8`} style={IconFs}></i> : ""}
