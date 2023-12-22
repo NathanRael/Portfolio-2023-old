@@ -33,18 +33,20 @@ export default function Project() {
             <Card
               image={MovieImage}
               title="Movie website"
-              description="A modern movie website that can simplify your life in terms of searching for new anime and watching trailers."
+              description="A modern movie platform designed for efortless anime trailer discovery"
               darkMode={darkMode}
               projectLink="https://nathanrael-movie.netlify.app"
+              usedTechno={['Html', 'Css','Bootstrap', 'Javascript', 'React js']}
             />
           </div>
           <div className="col-12 col-lg-6 mx-0 d-flex justify-content-center">
             <Card
               image={ChatImage}
               title="ChatBot website"
-              description="A ChatBot website that can help you in different topics."
+              description="A website with an interactive bot  that helps you in various topics"
               darkMode={darkMode}
               projectLink="https://nathanrael-chatBot.netlify.app"
+              usedTechno={['Html', 'Css','Bootstrap', 'Javascript', 'JQuery']}
             />
           </div>
         </div>
@@ -53,7 +55,7 @@ export default function Project() {
   );
 }
 
-function Card({ image, title, description, darkMode, projectLink }) {
+function Card({ image, title, description, darkMode, projectLink, usedTechno }) {
   const { width, height } = useContext(DataContext);
   const [cardHover, setCardHover] = useState(false);
 
@@ -110,6 +112,18 @@ function Card({ image, title, description, darkMode, projectLink }) {
         <p className={`card-text _lead ${darkMode ? "text-altlight" : ""}`}>
           {description}
         </p>
+        <div className="d-flex justify-content-start align-items-center container-fluid p-0 gap-24">
+          {usedTechno.map((techno, index) => (
+            <motion.div 
+            key={techno}
+            initial={{opacity : 0}}
+            whileInView={{opacity : 1}}
+            transition={{duration : 0.5, delay : 0.4, ease : 'easeInOut',}}
+            
+            className="border border-primary text-primary py-1 px-2 rounded-3 _small">{techno}</motion.div>
+          ))}
+        </div>
+
       </div>
     </div>
   );

@@ -112,7 +112,7 @@ function SkillItem({ image, name, darkMode, custom }) {
       },
     }),
 
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 50 },
     constraint: {
       top: 5,
       left: 5,
