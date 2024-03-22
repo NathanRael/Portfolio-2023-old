@@ -5,6 +5,8 @@ import JsIcon from "../assets/javascript.png";
 import CssIcon from "../assets/css.png";
 import HtmlIcon from "../assets/html.png";
 import JQuerIcon from "../assets/jquery.png";
+import TailwindIcon from "../assets/tailwindCSS.svg";
+import PhpIcon from "../assets/new-php-logo.svg";
 import { useContext } from "react";
 import DataContext from "../context/DataContext";
 import { subtitleTextVariant } from "../animation/variants";
@@ -41,8 +43,18 @@ export default function Skill() {
       delay: 0.6,
     },
     {
-      name: "React",
+      name: "React Js",
       image: ReactIcon,
+      delay: 0.7,
+    },
+    {
+      name: "TailwindCss",
+      image: TailwindIcon,
+      delay: 0.7,
+    },
+    {
+      name: "PHP",
+      image: PhpIcon,
       delay: 0.7,
     },
     {

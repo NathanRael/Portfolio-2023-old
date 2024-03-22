@@ -1,5 +1,6 @@
 import ChatImage from "../assets/chatScrennShoot.png";
 import MovieImage from "../assets/roomScreenCapture.png";
+import FashionImage from "../assets/fashion_landing.png";
 import { IconButton } from "./Buttons";
 import DataContext from "../context/DataContext";
 import { useContext, useEffect, useState } from "react";
@@ -48,6 +49,16 @@ export default function Project() {
               darkMode={darkMode}
               projectLink="https://nathanrael-chatBot.netlify.app"
               usedTechno={['Html', 'Css','Bootstrap', 'Javascript', 'JQuery']}
+            />
+          </div>
+          <div className="col-auto mx-0 ">
+            <Card
+              image={FashionImage}
+              title="Fashion website"
+              description="A modern showcase website with a Figma design"
+              darkMode={darkMode}
+              projectLink="https://nathanrael-fashion.netlify.app"
+              usedTechno={['Html', 'Css','TailwindCss']}
             />
           </div>
         </div>

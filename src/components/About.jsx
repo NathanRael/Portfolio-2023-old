@@ -45,9 +45,9 @@ export default function About() {
         💻 I'm interested in developing an{" "}
           <span className="_gradient">amazing</span> and{" "}
           <span className="_gradient">visually appealing website</span>. I'm
-          currently using some front-end <br />
+          currently using some modern <br />
           technologies and libraries such as{" "}
-          <span className="_gradient">React.js, Bootstrap, and jQuery</span>.<br/>
+          <span className="_gradient">React.js, PHP, Bootstrap, TailwindCss ...</span>.<br/>
         🎯 Continuously improving my skills is a priority 
           <br />
           to ensure that I stay up-to-date in this field. <br />
