@@ -11,7 +11,7 @@ export default function Footer() {
         <IconButton icon="bi bi-facebook" href="https://www.facebook.com/profile.php?id=100087957505977" />
         <IconButton icon="bi bi-github" href="https://github.com/nathanrael"/>
       </div>
-      <div className={`_body ${darkMode ? 'text-light' : ''}`}>© Natanael ralaivoavy, {year}</div>
+      <div className={`_body ${darkMode ? 'text-light' : ''}`}>© Natanael RALAIVOAVY, {year}</div>
     </section>
   );
 }

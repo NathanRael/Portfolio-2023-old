@@ -1,7 +1,7 @@
 import { MdButton } from "./Buttons";
 import DataContext from "../context/DataContext";
 import { useContext } from "react";
-import myCv from "../assets/myCV.png";
+import myCv from "../assets/CV.pdf";
 import { motion } from "framer-motion";
 import { subtitleTextVariant } from "../animation/variants";
 
@@ -44,7 +44,7 @@ export default function Contact() {
       >
         <i className="bi bi-filetype-pdf _icon me-8"></i>
         <a href={myCv} target="_blank">
-          Natanael-Ralaivoavy-resume.png
+          Natanael-Ralaivoavy-resume.pdf
         </a>
       </div>
     </section>
