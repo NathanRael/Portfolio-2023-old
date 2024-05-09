@@ -5,7 +5,7 @@ import JsIcon from "../assets/javascript.png";
 import CssIcon from "../assets/css.png";
 import HtmlIcon from "../assets/html.png";
 import JQuerIcon from "../assets/jquery.png";
-import TailwindIcon from "../assets/tailwindCSS.svg";
+import TailwindIcon from "../assets/TailwindCSS.svg";
 import PhpIcon from "../assets/new-php-logo.svg";
 import { useContext } from "react";
 import DataContext from "../context/DataContext";
@@ -107,9 +107,7 @@ export default function Skill() {
 }
 
 function SkillItem({ image, name, darkMode, custom }) {
-  
-
-  const { width  } = useContext(DataContext);
+  const { width } = useContext(DataContext);
   return (
     <motion.div
       drag={width >= 995 ? true : false}
