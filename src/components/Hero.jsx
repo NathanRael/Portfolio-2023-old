@@ -1,7 +1,7 @@
-import BootstrapIcon from "../assets/bootstrap.png";
+import TailwindIcon from "../assets/TailwindCSS.svg";
 import FigmaIcon from "../assets/figma.png";
 import ReactIcon from "../assets/react.png";
-import { BigButton } from "./Buttons";
+import { BigButton, MdButton } from "./Buttons";
 import DataContext from "../context/DataContext";
 import { useContext } from "react";
 import { delay, motion } from "framer-motion";
@@ -53,7 +53,7 @@ export default function Hero() {
             whileInView="visible"
             className="container-fluid d-flex justify-content-sm-start justify-content-center px-0"
           >
-            <BigButton
+            <MdButton
               name="See my project"
               icon="bi bi-arrow-right"
               darkMode={darkMode}
@@ -81,8 +81,11 @@ export default function Hero() {
               variants={heroImageVariant}
               initial="hidden"
               whileInView="visible"
-              src={BootstrapIcon}
+              src={TailwindIcon}
               className="align-self-end"
+              style={{
+                width : "128px",
+              }}
               alt=""
             />
           </div>
