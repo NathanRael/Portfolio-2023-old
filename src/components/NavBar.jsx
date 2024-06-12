@@ -60,7 +60,7 @@ export default function NavBar() {
               darkMode ? "text-light bg-secondary" : "text-dark bg-light"
             } _no-deco`}
           >
-            Natanael
+            R.Natanaël
           </a>
         </div>
         <div
@@ -113,7 +113,7 @@ export default function NavBar() {
                   className={`_no-deco _subtitle  ${
                     darkMode ? "text-light " : "text-dark"
                   } `}
-                >
+                >   
                   {item}
                 </a>
               </li>
@@ -173,13 +173,16 @@ function Language({ name, selected, handleSelect, darkMode }) {
       <label
         type="button"
         htmlFor={id}
-        className={` ${
-          selected
-            ? "_language text-primary"
-            : darkMode
-            ? "text-light"
-            : "text-dark"
-        }`}
+        style={{
+          visibility : "hidden",
+        }}
+        // className={` ${
+        //   selected
+        //     ? "_language text-primary"
+        //     : darkMode
+        //     ? "text-dark"
+        //     : "text-dark"
+        // }`}
       >
         {name}
       </label>

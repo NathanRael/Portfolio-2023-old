@@ -1,7 +1,7 @@
 import TailwindIcon from "../assets/TailwindCSS.svg";
 import FigmaIcon from "../assets/figma.png";
 import ReactIcon from "../assets/react.png";
-import { BigButton, MdButton } from "./Buttons";
+import { BigButton, IconButton, MdButton } from "./Buttons";
 import DataContext from "../context/DataContext";
 import { useContext } from "react";
 import { delay, motion } from "framer-motion";
@@ -51,8 +51,18 @@ export default function Hero() {
             variants={heroTextVariant}
             initial="hidden"
             whileInView="visible"
-            className="container-fluid d-flex justify-content-sm-start justify-content-center px-0"
+            className="container-fluid d-flex align-items-center justify-content-sm-start justify-content-center px-0 gap-4"
           >
+            <div className="d-flex align-items-center  gap-4">
+              <IconButton
+                icon="bi bi-facebook"
+                href="https://www.facebook.com/profile.php?id=100087957505977"
+              />
+              <IconButton
+                icon="bi bi-github"
+                href="https://github.com/nathanrael"
+              />
+            </div>
             <MdButton
               name="See my project"
               icon="bi bi-arrow-right"
@@ -70,9 +80,12 @@ export default function Hero() {
               variants={heroImageVariant}
               initial="hidden"
               whileInView="visible"
-              src={FigmaIcon}
+              src={ReactIcon}
               className="align-self-start"
               alt=""
+              style={{
+                width: "128px",
+              }}
             />
           </div>
           <div className="container-fluid d-flex">
@@ -84,7 +97,7 @@ export default function Hero() {
               src={TailwindIcon}
               className="align-self-end"
               style={{
-                width : "128px",
+                width: "128px",
               }}
               alt=""
             />
@@ -95,7 +108,7 @@ export default function Hero() {
               variants={heroImageVariant}
               initial="hidden"
               whileInView="visible"
-              src={ReactIcon}
+              src={FigmaIcon}
               className="align-self-start"
               alt=""
               width="106"

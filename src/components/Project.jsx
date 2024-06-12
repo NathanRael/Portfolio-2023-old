@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { subtitleTextVariant } from "../animation/variants";
 import { technoVariant } from "../animation/variants";
 import { useNavigate } from "react-router-dom";
+import { PROJECTS } from "../constants";
 
 export default function Project() {
   const { darkMode, width, height } = useContext(DataContext);
@@ -32,7 +33,7 @@ export default function Project() {
       </motion.h1>
       <div className="container-fluid px-0">
         <div className="row  justify-content-between row-gap-40">
-          <div className="col-auto mx-0 ">
+          {/* <div className="col-auto mx-0 ">
             <Card
               image={MovieImage}
               title="Movie website"
@@ -68,7 +69,12 @@ export default function Project() {
               projectLink="https://nathanrael-fashion.netlify.app"
               usedTechno={["Html", "Css", "TailwindCss"]}
             />
-          </div>
+          </div> */}
+          {PROJECTS.map((item) => (
+            <div key={item.title} className=" col-auto mx-0">
+              <Card {...item} darkMode={darkMode} />
+            </div>
+          ))}
         </div>
       </div>
       <div className="">
