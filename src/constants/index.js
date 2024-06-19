@@ -34,7 +34,7 @@ export const PROJECTS = [
     title: "Trends",
     link: "figma design | https://www.figma.com/file/EqUzKBWvav6OQj7VKlopkQ/fashion_landing_page?type=design&node-id=9%3A37&mode=design&t=uRc0Z7mDUffrSkxh-1",
     description: "A modern fashion website associated with a",
-    projectLink: "https://nathanrael-radio-stream.netlify.app",
+    projectLink: "https://nathanrael-fashion.netlify.app",
     usedTechno: ["Html", "Css", "TailwindCss"],
   },
 ];
