@@ -6,11 +6,15 @@ import Skill from "./components/Skills";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Circle from "./components/Circle";
+import {useRedirect} from "./hook/useRedirect.js";
 
 import { DataProvider } from "./context/DataContext";
 
 
 export default function App() {
+
+  useRedirect();
+  
   return (
     <>
       <DataProvider>
